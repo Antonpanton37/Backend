@@ -4,6 +4,9 @@ import os
 import requests
 import biometeo
 import datetime
+from biometeo.Tmrt import Tmrt_calc
+from biometeo.PET import PET
+from biometeo.wind import v1m_cal
 
 
 
