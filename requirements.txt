@@ -2,5 +2,5 @@ flask
 flask-cors
 gunicorn
 requests
-biometeo
+biometeo==0.2.9
 datetime
