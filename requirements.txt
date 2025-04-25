@@ -2,5 +2,5 @@ flask
 flask-cors
 gunicorn
 requests
-biometeo==0.2.2
+git+https://github.com/angelos-ac/BioMetEO.git
 datetime
