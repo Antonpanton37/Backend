@@ -44,6 +44,7 @@ def calculate():
 # Hämta data från API
     data = requests.get(url).json()
 
+
 # Plocka ut timmarna
     hours = data['forecast']['forecastday'][0]['hour']
 
@@ -85,7 +86,7 @@ def calculate():
     hour_of_day = time_format.hour
 
 #calculate windspeed at 1.1m height
-    v1 = biometeo.v1m_cal(Ws, height=10)
+    v1 = Ws * (4.87 / (4.87 + 67.8 * (1 - 0.1)))  # Wind speed at 1.1 m height (m/s)
 
     Tmrt_result = biometeo.Tmrt_calc(
         Ta = Ta,  # Air temperature (°C)
