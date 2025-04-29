@@ -4,6 +4,7 @@ import os
 import requests
 import biometeo
 import datetime
+import numpy as np
 
 
 
