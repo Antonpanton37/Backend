@@ -111,22 +111,23 @@ def calculate():
     )
 
 
-    PET_result = biometeo.PET(
-        Ta=Ta,  # Air temperature (°C)
-        VP=Tmrt_result['VP'],  # Vapor Pressure (hPa)
-        v=v1,  # Wind speed at 1.1 m height (m/s)
-        Tmrt=Tmrt_result['Tmrt'],  # Mean Radiant Temperature (°C)
-        icl=0.9,  # Clothing insulation (clo)
-        work=work,  # Workload (W/m²)
-        ht=1.75,  # Body height (m)
-        mbody=weight,  # Body weight (kg)
-        age=age,  # Age (years)
-        sex=sex,  # Sex (1 = male, 0 = female)
-        pos=1  # Position (1 = standing, 0 = sitting)
-    )
-    c = PET_result['PET_v'] 
+    # PET_result = biometeo.PET(
+    #     Ta=Ta,  # Air temperature (°C)
+    #     VP=Tmrt_result['VP'],  # Vapor Pressure (hPa)
+    #     v=v1,  # Wind speed at 1.1 m height (m/s)
+    #     Tmrt=Tmrt_result['Tmrt'],  # Mean Radiant Temperature (°C)
+    #     icl=0.9,  # Clothing insulation (clo)
+    #     work=work,  # Workload (W/m²)
+    #     ht=1.75,  # Body height (m)
+    #     mbody=weight,  # Body weight (kg)
+    #     age=age,  # Age (years)
+    #     sex=sex,  # Sex (1 = male, 0 = female)
+    #     pos=1  # Position (1 = standing, 0 = sitting)
+    #     sw
+    # )
+    # c = PET_result['PET_v'] 
 
-    return jsonify({"result": c})  # Skicka tillbaka ett resultat
+    return jsonify({"result": Tmrt_result['Tmrt']})  # Skicka tillbaka ett resultat
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))  # Render bestämmer porten
