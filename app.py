@@ -85,47 +85,48 @@ def calculate():
     day_of_year = time_format.timetuple().tm_yday
     hour_of_day = time_format.hour
 
-#calculate windspeed at 1.1m height
-    v1 = Ws * (4.87 / (4.87 + 67.8 * (1 - 0.1)))  # Wind speed at 1.1 m height (m/s)
+# #calculate windspeed at 1.1m height
+#     v1 = Ws * (4.87 / (4.87 + 67.8 * (1 - 0.1)))  # Wind speed at 1.1 m height (m/s)
 
-    Tmrt_result = biometeo.Tmrt_calc(
-        Ta = Ta,  # Air temperature (°C)
-        RH = RH,  # Relative humidity (%)
-        v = v1,  # Wind speed at the height of 1.1 m (m/s)
-        longitude = long,  # Longitude for location
-        latitude = lat,  # Latitude for location
-        sea_level_height = 10,  # Height above sea (m)
-        day_of_year = day_of_year,  # day of the year (1-365)
-        hour_of_day = hour_of_day,  # hour of the day (0-23)
-        timezone_offset = 2,  # Summertime (CEST)
-        N = 0,  # Cloud cover (0 = clear sky, 1 = completely cloudy)
-        G = 900,  # Global radiation (W/m²)
-        DGratio = 0.20,  # Ratio of difuse and global radiation (dimensionless)
-        #Tob = Tob_VP_result['Tob'],  # Surface temperature (°C)
-        ltf = 4.0,  # Linke turbidity (dimensionless)
-        alb = 0.1,  # Albedo of the surrounding (dimensionless)
-        albhum = 0.3,  # Albedo of the human being (dimensionless)
-        RedGChk = False,  # Reduction of G presetting by obstacles in boolean
-        foglimit = 90,  # lower limit of RH for full diffuse radiation (%)
-        bowen = 1  # Bowen ratio (dimensionless)
-    )
+#     Tmrt_result = biometeo.Tmrt_calc(
+#         Ta = Ta,  # Air temperature (°C)
+#         RH = RH,  # Relative humidity (%)
+#         v = v1,  # Wind speed at the height of 1.1 m (m/s)
+#         longitude = long,  # Longitude for location
+#         latitude = lat,  # Latitude for location
+#         sea_level_height = 10,  # Height above sea (m)
+#         day_of_year = day_of_year,  # day of the year (1-365)
+#         hour_of_day = hour_of_day,  # hour of the day (0-23)
+#         timezone_offset = 2,  # Summertime (CEST)
+#         N = 0,  # Cloud cover (0 = clear sky, 1 = completely cloudy)
+#         G = 900,  # Global radiation (W/m²)
+#         DGratio = 0.20,  # Ratio of difuse and global radiation (dimensionless)
+#         #Tob = Tob_VP_result['Tob'],  # Surface temperature (°C)
+#         ltf = 4.0,  # Linke turbidity (dimensionless)
+#         alb = 0.1,  # Albedo of the surrounding (dimensionless)
+#         albhum = 0.3,  # Albedo of the human being (dimensionless)
+#         RedGChk = False,  # Reduction of G presetting by obstacles in boolean
+#         foglimit = 90,  # lower limit of RH for full diffuse radiation (%)
+#         bowen = 1  # Bowen ratio (dimensionless)
+#     )
 
 
-    PET_result = biometeo.PET(
-        Ta=Ta,  # Air temperature (°C)
-        VP=Tmrt_result['VP'],  # Vapor Pressure (hPa)
-        v=v1,  # Wind speed at 1.1 m height (m/s)
-        Tmrt=Tmrt_result['Tmrt'],  # Mean Radiant Temperature (°C)
-        icl=0.9,  # Clothing insulation (clo)
-        work=work,  # Workload (W/m²)
-        ht=1.75,  # Body height (m)
-        mbody=weight,  # Body weight (kg)
-        age=age,  # Age (years)
-        sex=sex,  # Sex (1 = male, 0 = female)
-        pos=1  # Position (1 = standing, 0 = sitting)
-    )
+#     PET_result = biometeo.PET(
+#         Ta=Ta,  # Air temperature (°C)
+#         VP=Tmrt_result['VP'],  # Vapor Pressure (hPa)
+#         v=v1,  # Wind speed at 1.1 m height (m/s)
+#         Tmrt=Tmrt_result['Tmrt'],  # Mean Radiant Temperature (°C)
+#         icl=0.9,  # Clothing insulation (clo)
+#         work=work,  # Workload (W/m²)
+#         ht=1.75,  # Body height (m)
+#         mbody=weight,  # Body weight (kg)
+#         age=age,  # Age (years)
+#         sex=sex,  # Sex (1 = male, 0 = female)
+#         pos=1  # Position (1 = standing, 0 = sitting)
+#     )
 
-    return jsonify({"result": PET_result['PET_v']})  # Skicka tillbaka ett resultat
+    #return jsonify({"result": PET_result['PET_v']})  # Skicka tillbaka ett resultat
+    return jsonify({"result": temp1})
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))  # Render bestämmer porten
