@@ -34,10 +34,10 @@ def calculate():
 
 
     # Dummy-beräkning (byt ut detta mot riktig logik)
-    sex = 0
+    sex = 1
     height = 1.66
     if gender == 'Man':
-        sex = 1
+        sex = 2
         height = 1.8
     
 # Ange plats
