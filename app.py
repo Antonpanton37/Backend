@@ -93,7 +93,7 @@ def calculate():
 #calculate windspeed at 1.1m height
     v1 = Ws * (4.87 / (4.87 + 67.8 * (1 - 0.1)))  # Wind speed at 1.1 m height (m/s)
     v = v1
-    ht = 1.1
+    ht = height
     Tmrt_result = biometeo.Tmrt_calc(
         Ta = Ta,  # Air temperature (°C)
         RH = RH,  # Relative humidity (%)
