@@ -45,6 +45,7 @@ def calculate():
                 "temp": temp,
                 "humidity": hour_data["humidity"],
                 "wind": hour_data["wind_kph"] / 3.6,
+                "icon": hour_data["condition"]["icon"]
             }
 
     time_format = datetime.datetime.strptime(max_temp["time"], "%Y-%m-%d %H:%M")
@@ -84,7 +85,8 @@ def calculate():
     PET = _PET(Ta, RH, Tmrt, v1, weight, age, height, work, icl, sex)
     return jsonify({"result": PET,
                    "temp": Ta,
-                    "time": hour_of_day
+                    "time": hour_of_day,
+                    "icon": max_temp["icon"]
                    })
 
 
