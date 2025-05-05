@@ -83,7 +83,8 @@ def calculate():
 
     PET = _PET(Ta, RH, Tmrt, v1, weight, age, height, work, icl, sex)
     return jsonify({"result": PET,
-                   "temp": Ta
+                   "temp": Ta,
+                    "time": hour_of_day
                    })
 
 
