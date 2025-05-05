@@ -53,6 +53,7 @@ def calculate():
     hour_of_day = time_format.hour
     lat = weather_data["location"]["lat"]
     lon = weather_data["location"]["lon"]
+    icon = max_temp["icon"]
 
     Ta = max_temp["temp"]
     RH = max_temp["humidity"]
@@ -86,7 +87,7 @@ def calculate():
     return jsonify({"result": PET,
                    "temp": Ta,
                     "time": hour_of_day,
-                    "icon": max_temp["icon"]
+                    "icon": f"https:{icon}"
                    })
 
 
