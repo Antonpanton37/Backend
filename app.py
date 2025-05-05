@@ -82,7 +82,9 @@ def calculate():
     )["Tmrt"]
 
     PET = _PET(Ta, RH, Tmrt, v1, weight, age, height, work, icl, sex)
-    return jsonify({"result": PET})
+    return jsonify({"result": PET,
+                   "temp": Ta
+                   })
 
 
 @app.route("/")
