@@ -17,22 +17,14 @@ def calculate():
     gender = data.get("gender", "Man")
     weight = float(data.get("weight", 75))
     location = data.get("location", "Stockholm")
-    pace = float(data.get("pace", 5))
+    height = float(data.get("pace", 1.75))
 
-    if pace <= 4.7:
-        work = 800
-    elif pace <= 5.3:
-        work = 670
-    elif pace <= 6.2:
-        work = 580
-    else:
-        work = 500
+    
+    work = 300 
 
     # Korrekt könskodning: 1 = man, 2 = kvinna
-    height = 1.66
     if gender.lower() == "man":
         sex = 1
-        height = 1.8
     elif gender.lower() == "kvinna":
         sex = 2
     else:
