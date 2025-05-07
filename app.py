@@ -5,6 +5,7 @@ import requests
 import biometeo
 import datetime
 import numpy as np
+import time
 
 app = Flask(__name__)
 CORS(app)
@@ -12,7 +13,7 @@ CORS(app)
 @app.route("/calculate", methods=["POST"])
 def calculate():
     data = request.json
-
+    start_time = time.time()
     age = int(data.get("age", 35))
     gender = data.get("gender", "Man")
     weight = float(data.get("weight", 75))
@@ -82,6 +83,8 @@ def calculate():
         foglimit=90,
         bowen=1,
     )["Tmrt"]
+    duration = time.time() - start_time
+    print(f"⏱️ Väder-API tog {duration:.2f} sekunder")
 
     PET = _PET(Ta, RH, Tmrt, v1, weight, age, height, work, icl, sex)
     return jsonify({"result": PET,
@@ -90,7 +93,7 @@ def calculate():
                     "icon": f"https:{icon}"
                    })
 
-
+    
 @app.route("/")
 def home():
     return jsonify({"message": "Server is running!"})
