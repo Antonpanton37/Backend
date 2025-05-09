@@ -2,6 +2,7 @@ flask
 flask-cors
 gunicorn
 requests
+numpy
 biometeo
 datetime
-numpy
+
