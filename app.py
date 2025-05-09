@@ -4,7 +4,7 @@ import os
 import requests
 import biometeo
 import datetime
-import numpy as np
+import numpy
 import time
 
 app = Flask(__name__)
@@ -199,7 +199,7 @@ def _PET(ta, RH, tmrt, v, mbody, age, ht, work, icl, sex):
     c_1 = h + ere
     he = 0.633 * hc / (p * cair)
     fec = 1 / (1 + 0.92 * hc * rcl)
-    htcl = 6.28 * ht * y * di / (rcl * np.log(r2 / r1) * acl)
+    htcl = 6.28 * ht * y * di / (rcl * numpy.log(r2 / r1) * acl)
     aeff = adu * feff
     c_2 = adu * rob * cb
     c_5 = 0.0208 * c_2
