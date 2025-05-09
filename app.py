@@ -62,6 +62,8 @@ def calculate():
     icl = 0.4
 
     v1 = biometeo.v1m_cal(Ws, height=10)
+    if v1 <= 1.5:
+        v1 = 1.5
 
     Tmrt = biometeo.Tmrt_calc(
         Ta=Ta,
