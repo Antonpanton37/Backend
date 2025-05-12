@@ -62,7 +62,7 @@ def calculate():
     icl = 0.4
 
     v1 = biometeo.v1m_cal(Ws, height=10)
-    
+
     Tmrt = biometeo.Tmrt_calc(
         Ta=Ta,
         RH=RH,
