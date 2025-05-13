@@ -61,7 +61,7 @@ def calculate():
     Ws = max_temp["wind"]
     icl = 0.4
 
-    v1 = biometeo.v1m_cal(Ws, height=10)
+    v1 = 1.5        #biometeo.v1m_cal(Ws, height=10)
 
     Tmrt = biometeo.Tmrt_calc(
         Ta=Ta,
