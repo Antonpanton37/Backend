@@ -4,7 +4,7 @@ import os
 import requests
 import biometeo
 import datetime
-import numpy
+import numpy as np
 import time
 
 app = Flask(__name__)
@@ -74,6 +74,9 @@ def calculate():
         hour_of_day=hour_of_day,
         timezone_offset=2,
         N=0,
+        G=900,
+        DGratio=0.20,
+        ltf=4.0,
         alb=0.1,
         albhum=0.3,
         RedGChk=False,
@@ -194,7 +197,7 @@ def _PET(ta, RH, tmrt, v, mbody, age, ht, work, icl, sex):
     c_1 = h + ere
     he = 0.633 * hc / (p * cair)
     fec = 1 / (1 + 0.92 * hc * rcl)
-    htcl = 6.28 * ht * y * di / (rcl * numpy.log(r2 / r1) * acl)
+    htcl = 6.28 * ht * y * di / (rcl * np.log(r2 / r1) * acl)
     aeff = adu * feff
     c_2 = adu * rob * cb
     c_5 = 0.0208 * c_2
