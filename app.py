@@ -31,7 +31,7 @@ def calculate():
     else:
         sex = 1  # fallback: man
 
-    key = "967994137b684f6c886100836252503"
+    key = "din nyckel"
     url = f"https://api.weatherapi.com/v1/forecast.json?key={key}&q={location}&lang=sv&days=1"
     weather_data = requests.get(url).json()
 
